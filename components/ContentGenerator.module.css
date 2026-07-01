@@ -1,0 +1,83 @@
+/* ─── Container ─────────────────────────────────────────────── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-6);
+  font-family: var(--font-sans);
+}
+
+/* ─── Header ────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.settingsLink {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-primary, #0070f3);
+  text-decoration: none;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--color-primary, #0070f3);
+  border-radius: 6px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.settingsLink:hover {
+  background-color: var(--color-primary, #0070f3);
+  color: #fff;
+}
+
+/* ─── Main two-column area ──────────────────────────────────── */
+/*
+ * Mobile-first: single column, stacked vertically.
+ * The TabBar sits above this grid (rendered outside .main in JSX).
+ * Order: TabBar → formPanel → outputPanel → PromptLibrary
+ */
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-4);
+}
+
+.formPanel {
+  min-width: 0;
+}
+
+.outputPanel {
+  min-width: 0;
+}
+
+/* ─── Prompt Library wrapper ────────────────────────────────── */
+/*
+ * Spans full width below the two-column grid on all breakpoints.
+ * The PromptLibrary component is rendered outside .main in JSX,
+ * so it naturally flows below the grid.
+ */
+.promptLibrarySection {
+  margin-top: var(--space-6);
+}
+
+/* ─── Desktop: two columns (≥ 768 px) ──────────────────────── */
+@media (min-width: 768px) {
+  .main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ─── Wide desktop: wider output panel (≥ 1024 px) ─────────── */
+@media (min-width: 1024px) {
+  .main {
+    grid-template-columns: 2fr 3fr;
+  }
+}
